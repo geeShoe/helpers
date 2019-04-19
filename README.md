@@ -8,9 +8,9 @@ may be missing._
  
  Test coverage: 100%.
  ```
-    Time: 72 ms, Memory: 4.00 MB
+    Time: 76 ms, Memory: 4.00 MB
     
-    OK (12 tests, 12 assertions)
+    OK (27 tests, 27 assertions)
  ```
 
 ## Getting Started
