@@ -41,7 +41,7 @@ class FileHelpers
      */
     public static function checkDirIsRW(string $directory): bool
     {
-        return is_dir($directory) && is_readable($directory) && is_writable($directory);
+        return is_dir($directory) && self::checkIsRW($directory);
     }
 
     /**
