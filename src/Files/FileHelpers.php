@@ -30,6 +30,16 @@ class FileHelpers
      *
      * @return bool
      */
+    public static function checkIsR(string $path): bool
+    {
+        return is_readable($path);
+    }
+
+    /**
+     * @param string $path
+     *
+     * @return bool
+     */
     public static function checkIsRW(string $path): bool
     {
         return is_readable($path) && is_writable($path);
@@ -40,9 +50,29 @@ class FileHelpers
      *
      * @return bool
      */
+    public static function checkDirIsR(string $directory): bool
+    {
+        return is_dir($directory) && self::checkIsR($directory);
+    }
+
+    /**
+     * @param string $directory
+     *
+     * @return bool
+     */
     public static function checkDirIsRW(string $directory): bool
     {
         return is_dir($directory) && self::checkIsRW($directory);
+    }
+
+    /**
+     * @param string $file
+     *
+     * @return bool
+     */
+    public static function checkFileIsR(string $file): bool
+    {
+        return is_file($file) && self::checkIsR($file);
     }
 
     /**
