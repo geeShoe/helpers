@@ -4,6 +4,15 @@ Helpers is a collection of functions commonly used throughout Geeshoe applicatio
 _Helpers is currently in initial development. As such, some documentation and tests
 may be missing._
 
+ Latest Recommended version: v0.1.1 Released April 19th, 2019
+ 
+ Test coverage: 100%.
+ ```
+    Time: 72 ms, Memory: 4.00 MB
+    
+    OK (12 tests, 12 assertions)
+ ```
+
 ## Getting Started
 
 Helpers is intended to be fully compliant with 
