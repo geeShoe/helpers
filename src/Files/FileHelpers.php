@@ -42,7 +42,7 @@ class FileHelpers
      */
     public static function checkIsRW(string $path): bool
     {
-        return is_readable($path) && is_writable($path);
+        return self::checkIsR($path) && is_writable($path);
     }
 
     /**
