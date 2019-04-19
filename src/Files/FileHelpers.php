@@ -18,7 +18,6 @@ declare(strict_types=1);
 
 namespace Geeshoe\Helpers\Files;
 
-
 /**
  * Class FileHelpers
  *
@@ -28,6 +27,7 @@ class FileHelpers
 {
     /**
      * @param string $path
+     *
      * @return bool
      */
     public static function checkIsRW(string $path): bool
@@ -37,6 +37,7 @@ class FileHelpers
 
     /**
      * @param string $directory
+     *
      * @return bool
      */
     public static function checkDirIsRW(string $directory): bool
@@ -46,6 +47,7 @@ class FileHelpers
 
     /**
      * @param string $file
+     *
      * @return bool
      */
     public static function checkFileIsRW(string $file): bool
