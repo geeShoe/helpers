@@ -46,6 +46,7 @@ class StringHelpers
 
     /**
      * @param string $string
+     *
      * @return string
      */
     public static function filterSpaceToDash(string $string): string
