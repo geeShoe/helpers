@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 class FileHelpersTest extends TestCase
 {
     /**
-     * @var
+     * @var vfsStreamDirectory
      */
     public static $stream;
 
@@ -59,6 +59,37 @@ class FileHelpersTest extends TestCase
         ];
     }
 
+    public function isRWDataProvider(): array
+    {
+        return [
+            [0600, true],
+            [0400, false],
+            [0000, false]
+        ];
+    }
+
+    public function isRAndOfTypeDataProvider(): array
+    {
+        return [
+            [0400, true, true],
+            [0000, true, false],
+            [0400, false, false],
+            [0000, false, false],
+        ];
+    }
+
+    public function isRWAndOfTypeDataProvider(): array
+    {
+        return [
+            [0600, true, true],
+            [0600, false, false],
+            [0400, true, false],
+            [0400, false, false],
+            [0000, true, false],
+            [0000, false, false]
+        ];
+    }
+
     /**
      * @dataProvider isRDataProvider
      *
@@ -70,16 +101,6 @@ class FileHelpersTest extends TestCase
         self::$file->chmod($chmod);
 
         $this->assertSame($expected, FileHelpers::checkIsR(self::$filePath));
-    }
-
-    public function isRAndOfTypeDataProvider(): array
-    {
-        return [
-            [0400, true, true],
-            [0000, true, false],
-            [0400, false, false],
-            [0000, false, false],
-        ];
     }
 
     /**
@@ -123,50 +144,20 @@ class FileHelpersTest extends TestCase
     }
 
     /**
-     * Data provider for testCheckIsRW
-     *
-     * @return array
-     */
-    public function isRW(): array
-    {
-        return [
-            'Is RW' => [0777, true],
-            'Is R' => [0400, false]
-        ];
-    }
-
-    /**
-     * @dataProvider isRW
+     * @dataProvider isRWDataProvider
      *
      * @param int  $chmod
      * @param bool $expected
      */
     public function testCheckIsRW(int $chmod, bool $expected): void
     {
-        $dir = vfsStream::newDirectory('something')->at(self::$stream);
+        self::$dir->chmod($chmod);
 
-        $dir->chmod($chmod);
-
-        $this->assertSame($expected, FileHelpers::checkIsRW('vfs://testing/something'));
+        $this->assertSame($expected, FileHelpers::checkIsRW(self::$dirPath));
     }
 
     /**
-     * Data provider for testCheckDirIsRW
-     *
-     * @return array
-     */
-    public function isDirRW(): array
-    {
-        return [
-            'Is Dir & RW' => [0777, true, true],
-            'is Dir & R' => [0400, true, false],
-            'Is Dir & 0' => [0000, true, false],
-            'Is Not Dir' => [0777, false, false]
-        ];
-    }
-
-    /**
-     * @dataProvider isDirRW
+     * @dataProvider isRWAndOfTypeDataProvider
      *
      * @param int  $chmod
      * @param bool $isDir
@@ -174,37 +165,19 @@ class FileHelpersTest extends TestCase
      */
     public function testCheckDirIsRW(int $chmod, bool $isDir, bool $expected): void
     {
-        $dir = vfsStream::newDirectory('something')->at(self::$stream);
-        vfsStream::newFile('someFile')->at(self::$stream);
+        self::$dir->chmod($chmod);
 
-        $dir->chmod($chmod);
+        $path = self::$dirPath;
 
-        $path = 'vfs://testing/someFile';
-
-        if ($isDir) {
-            $path = 'vfs://testing/something';
+        if (!$isDir) {
+            $path = self::$filePath;
         }
 
         $this->assertSame($expected, FileHelpers::checkDirIsRW($path));
     }
 
     /**
-     * Data provider for testCheckFileIsRW
-     *
-     * @return array
-     */
-    public function isFileRW(): array
-    {
-        return [
-            'Is File & RW' => [0777, true, true],
-            'Is File & R' => [0400, true, false],
-            'Is File & 0' => [0000, true, false],
-            'Not File' => [0777, false, false]
-        ];
-    }
-
-    /**
-     * @dataProvider isFileRW
+     * @dataProvider isRWAndOfTypeDataProvider
      *
      * @param int  $chmod
      * @param bool $isFile
@@ -212,14 +185,12 @@ class FileHelpersTest extends TestCase
      */
     public function testCheckFileIsRW(int $chmod, bool $isFile, bool $expected): void
     {
-        $file = vfsStream::newFile('testFile.txt')->at(self::$stream);
+        self::$file->chmod($chmod);
 
-        $file->chmod($chmod);
+        $path = self::$filePath;
 
-        $path = 'vfs://testing';
-
-        if ($isFile) {
-            $path = 'vfs://testing/testFile.txt';
+        if (!$isFile) {
+            $path = self::$dirPath;
         }
 
         $this->assertSame($expected, FileHelpers::checkFileIsRW($path));
