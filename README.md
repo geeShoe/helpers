@@ -4,13 +4,13 @@ Helpers is a collection of functions commonly used throughout Geeshoe applicatio
 _Helpers is currently in initial development. As such, some documentation and tests
 may be missing._
 
- Latest Recommended version: v0.1.1 Released April 19th, 2019
+ Latest Recommended version: v0.2.0 Released May 10th, 2019
  
  Test coverage: 100%.
  ```
-    Time: 76 ms, Memory: 4.00 MB
+    Time: 59 ms, Memory: 6.00 MB
     
-    OK (27 tests, 27 assertions)
+    OK (30 tests, 30 assertions)
  ```
 
 ## Getting Started
