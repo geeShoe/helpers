@@ -4,6 +4,21 @@
 As Helpers is currently in active development, drastic changes are to be expected
 during the v0.x.x point releases. Expect stability in the 1.x.x releases.
 
+### Next Release
+*Released - TBD*
+#### New Features:
+* Created helper to generate RSS/Atom XML file contents
+
+#### Code Quality:
+* Removed extra line at EOF
+* Added missing return type DocBlocks in FileHelpers UnitTest
+
+#### Development:
+* Updated composer dependencies to latest stable release
+* Added Docker containers for development purposes
+* Implemented `Make` for Docker commands, PHPUnit, Codesniffer, & PHP Stan
+* Added PHP Stan dev dependency for static analysis
+
 ### v0.2.0
 *Released - 2019-05-10*
 
