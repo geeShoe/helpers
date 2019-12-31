@@ -36,4 +36,14 @@ class Atom
                 <id>$id</id>
 EOT;
     }
+
+    /**
+     * Get closing tag for Atom XML feed
+     *
+     * @return string
+     */
+    public static function getClosing(): string
+    {
+        return '</feed>';
+    }
 }

@@ -33,4 +33,11 @@ EOT;
             'https://geeshoe.com/unittest'
         ));
     }
+
+    public function testGetClosingReturnsClosingAtomXMLFeedTags(): void
+    {
+        $expected = '</feed>';
+
+        $this->assertSame($expected, Atom::getClosing());
+    }
 }
