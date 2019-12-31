@@ -46,4 +46,32 @@ EOT;
     {
         return '</feed>';
     }
+
+    /**
+     * Get a Atom Feed Entry
+     *
+     * @param string $title         Entry title
+     * @param string $link          Link to entry page. I.e. href link to blog post
+     * @param string $authorName    Name of the author
+     * @param string $lastUpdated   \DATETIME::ATOM timestamp of when created/last updated
+     * @param string $content       HTML content of the entry
+     * @return string
+     */
+    public static function getEntry(
+        string $title,
+        string $link,
+        string $authorName,
+        string $lastUpdated,
+        string $content
+    ): string {
+        return <<<EOT
+<entry>
+    <title type="html"><![CDATA[$title]]</title>
+    <link href="$link" />
+    <author><name>$authorName</name></author>
+    <updated>$lastUpdated</updated>
+    <content type="html"><![CDATA[$content]]</content>
+</entry>
+EOT;
+    }
 }
