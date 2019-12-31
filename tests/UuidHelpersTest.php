@@ -66,4 +66,3 @@ class UuidHelpersTest extends TestCase
         $this->assertTrue(Uuid::isValid($result));
     }
 }
-
