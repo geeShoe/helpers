@@ -1,0 +1,29 @@
+version: '3.7'
+
+networks:
+  app:
+    driver: bridge
+
+services:
+  workspace:
+    build:
+      context: ./workspace
+      args:
+        - PHP_VERSION=${PHP_VERSION}
+    image: ${COMPOSE_PROJECT_NAME}_workspace:latest
+    volumes:
+      - ../:/var/develop
+    tty: true
+    networks:
+      - app
+
+  php-cli:
+    build:
+      context: ./php-cli
+      args:
+        - PHP_VERSION=${PHP_VERSION}
+    image: ${COMPOSE_PROJECT_NAME}_php-cli:latest
+    volumes:
+      - ../:/var/version
+    networks:
+      - app
