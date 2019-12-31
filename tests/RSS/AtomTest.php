@@ -61,6 +61,7 @@ EOT;
 <entry>
     <title type="html"><![CDATA[Some Title]]></title>
     <link href="https://geeshoe.com" />
+    <id>https://geeshoe.com</id>
     <author><name>Jesse Rushlow</name></author>
     <updated>2019-12-31T12:00:01+00:00</updated>
     <content type="html"><![CDATA[<h1>Some content</h1>]]></content>
@@ -68,6 +69,7 @@ EOT;
 EOT;
         $this->assertSame($expected, Atom::getEntry(
             'Some Title',
+            'https://geeshoe.com',
             'https://geeshoe.com',
             'Jesse Rushlow',
             '2019-12-31T12:00:01+00:00',

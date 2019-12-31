@@ -66,6 +66,7 @@ EOT;
      *
      * @param string $title         Entry title
      * @param string $link          Link to entry page. I.e. href link to blog post
+     * @param string $id            Unique entry identifier
      * @param string $authorName    Name of the author
      * @param string $lastUpdated   \DATETIME::ATOM timestamp of when created/last updated
      * @param string $content       HTML content of the entry
@@ -74,6 +75,7 @@ EOT;
     public static function getEntry(
         string $title,
         string $link,
+        string $id,
         string $authorName,
         string $lastUpdated,
         string $content
@@ -82,6 +84,7 @@ EOT;
 <entry>
     <title type="html"><![CDATA[$title]]></title>
     <link href="$link" />
+    <id>$id</id>
     <author><name>$authorName</name></author>
     <updated>$lastUpdated</updated>
     <content type="html"><![CDATA[$content]]></content>
