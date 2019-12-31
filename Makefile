@@ -37,3 +37,7 @@ workspace: ## Run workspace container as developer
 .PHONY: cs
 cs: ## Run PHP Code sniffer
 	php vendor/bin/phpcs
+
+.PHONY: stan
+stan: ## Run PHP Stan
+	php vendor/bin/phpstan analyse -c phpstan.neon
