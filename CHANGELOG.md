@@ -4,14 +4,18 @@
 As Helpers is currently in active development, drastic changes are to be expected
 during the v0.x.x point releases. Expect stability in the 1.x.x releases.
 
-### Next Release
-*Released - TBD*
+### v0.3.0
+*Released - 2019-12-31*
 #### New Features:
 * Created helper to generate RSS/Atom XML file contents
 
 #### Code Quality:
 * Removed extra line at EOF
 * Added missing return type DocBlocks in FileHelpers UnitTest
+
+#### Misc:
+
+* Updated documentation
 
 #### Development:
 * Updated composer dependencies to latest stable release

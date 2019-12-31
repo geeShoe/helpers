@@ -4,14 +4,18 @@ Helpers is a collection of functions commonly used throughout Geeshoe applicatio
 _Helpers is currently in initial development. As such, some documentation and tests
 may be missing._
 
- Latest Recommended version: v0.2.0 Released May 10th, 2019
+ Latest Recommended version: v0.3.0 Released December 31st, 2019
  
  Test coverage: 100%.
  ```
-    Time: 59 ms, Memory: 6.00 MB
+    Time: 44 ms, Memory: 6.00 MB
     
-    OK (30 tests, 30 assertions)
+    OK (33 tests, 33 assertions)
  ```
+
+While in initial development, the `master` branch contains all project files. Once helpers is
+in a stable state for initial release, the `master` branch will no longer include development files. I.e.
+`phpunit.xml`, `.docker`, `Makefile`, etc...
 
 ## Getting Started
 
@@ -44,6 +48,20 @@ $result = Geeshoe\Helpers\Files\FileHelpers::checkIsRW(/path/to/file/);
 More extensive documentation on Helpers is to be released soon. In the
 meantime, all of the methods and properties are well documented within the
 code base.
+
+## Development
+
+Docker containers are provided for development purposes. To use the containers,
+copy `.docker/.env.DIST` to `.docker/.env`, `.docker/xdebug-DIST.ini` to `.docker/php-cli/xdebug.ini`
+and update their respective values.
+
+A `Makefile` is provided to assist in managing the containers as well as running
+phpunit, php-cs, and phpstan within the workspace container.
+
+From the project root directory, typing `make` on the command line will print available make commands.
+
+Helpers was developed on Debian Buster and as such any associated docker, make, etc. files have
+not been tested in other environments.
 
 ## Authors
 
