@@ -80,11 +80,11 @@ EOT;
     ): string {
         return <<<EOT
 <entry>
-    <title type="html"><![CDATA[$title]]</title>
+    <title type="html"><![CDATA[$title]]></title>
     <link href="$link" />
     <author><name>$authorName</name></author>
     <updated>$lastUpdated</updated>
-    <content type="html"><![CDATA[$content]]</content>
+    <content type="html"><![CDATA[$content]]></content>
 </entry>
 EOT;
     }
