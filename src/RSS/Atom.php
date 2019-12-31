@@ -15,10 +15,10 @@ class Atom
     /**
      * Get Atom header without closing </feed> tag for us in rss posts
      *
-     * @param string $title
-     * @param string $subtitle
-     * @param string $link
-     * @param string $id
+     * @param string $title     Title of the RSS Feed
+     * @param string $subtitle  Subtitle of the RSS Feed
+     * @param string $link      Link to the web resource the RSS Feed is based on
+     * @param string $id        The permanent unique id of the RSS Feed
      * @return string
      */
     public static function getHeader(
