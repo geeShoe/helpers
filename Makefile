@@ -41,3 +41,7 @@ cs: ## Run PHP Code sniffer
 .PHONY: stan
 stan: ## Run PHP Stan
 	php vendor/bin/phpstan analyse -c phpstan.neon
+
+.PHONY: phpunit
+phpunit: ## Run PHPUnit with phpunit.xml config and autoload.php bootstrap
+	php vendor/bin/phpunit -c ./phpunit.xml --bootstrap vendor/autoload.php
