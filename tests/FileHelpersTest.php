@@ -51,6 +51,9 @@ class FileHelpersTest extends TestCase
         self::$file = vfsStream::newFile('text.file')->at(self::$stream);
     }
 
+    /**
+     * @return array<array>
+     */
     public function isRDataProvider(): array
     {
         return [
@@ -59,6 +62,9 @@ class FileHelpersTest extends TestCase
         ];
     }
 
+    /**
+     * @return array<array>
+     */
     public function isRWDataProvider(): array
     {
         return [
@@ -68,6 +74,9 @@ class FileHelpersTest extends TestCase
         ];
     }
 
+    /**
+     * @return array<array>
+     */
     public function isRAndOfTypeDataProvider(): array
     {
         return [
@@ -78,6 +87,9 @@ class FileHelpersTest extends TestCase
         ];
     }
 
+    /**
+     * @return array<array>
+     */
     public function isRWAndOfTypeDataProvider(): array
     {
         return [
