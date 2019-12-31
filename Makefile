@@ -33,3 +33,7 @@ stop: ## Stop docker containers
 .PHONY: workspace
 workspace: ## Run workspace container as developer
 	$(COMPOSE) run workspace /bin/bash
+
+.PHONY: cs
+cs: ## Run PHP Code sniffer
+	php vendor/bin/phpcs

@@ -2,3 +2,4 @@
 /vendor
 .env
 xdebug.ini
+.phpcs-cache
