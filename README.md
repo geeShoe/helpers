@@ -4,7 +4,7 @@ Helpers is a collection of functions commonly used throughout Geeshoe applicatio
 _Helpers is currently in initial development. As such, some documentation and tests
 may be missing._
 
- Latest Recommended version: v0.3.0 Released December 31st, 2019
+ Latest Recommended version: v0.4.0 Released March 19th, 2020
  
  Test coverage: 100%.
  ```
@@ -26,7 +26,7 @@ Helpers is intended to be fully compliant with
 
 ## Prerequisites
 
-* PHP 7.1+
+* PHP 7.1+ | PHP 8
 
 ## Installing
 
