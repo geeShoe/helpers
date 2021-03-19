@@ -4,6 +4,11 @@
 As Helpers is currently in active development, drastic changes are to be expected
 during the v0.x.x point releases. Expect stability in the 1.x.x releases.
 
+### v0.4.0
+*Released - 2020-03-19*
+* Add support for PHP 8
+* Drop composer.lock from git
+
 ### v0.3.1
 *Released - 2019-12-31*
 * Added missing CDATA closing tags
