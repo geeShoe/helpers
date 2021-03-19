@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+    workspace:
+        build:
+            context: ./.docker/workspace
+            args:
+                - PHP_VERSION=7.4
+        volumes:
+            - ./:/var/htdocs
+        tty: true
+
+    workspace-8:
+        build:
+            context: ./.docker/workspace-8
+            args:
+                - PHP_VERSION=8.0
+        volumes:
+            - ./:/var/htdocs
+        tty: true
+
+    php-cli:
+        build:
+            context: ./.docker/php-cli
+            args:
+                - PHP_VERSION=7.4
+        environment:
+            - FUNC_TEST_ENV_FILE=.env.test.local
+        volumes:
+            - ./:/var/htdocs
+
+    php-cli-8:
+        build:
+            context: ./.docker/php-cli
+            args:
+                - PHP_VERSION=8.0
+        environment:
+            - FUNC_TEST_ENV_FILE=.env.test.local
+        volumes:
+            - ./:/var/htdocs
